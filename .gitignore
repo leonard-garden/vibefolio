@@ -176,3 +176,7 @@ temp/
 *.bak
 *.orig
 .idea
+
+# ---------- Claude Code / OMC state ----------
+.omc/state/
+.omc/sessions/
