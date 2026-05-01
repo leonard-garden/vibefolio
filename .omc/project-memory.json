@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1777524049154,
+  "projectRoot": "/Users/leonard/Workspace/leonard-garden/vibefolio",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [
+      "docs"
+    ],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "backend": {
+      "path": "backend",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777524049143,
+      "keyFiles": [
+        "CLAUDE.md"
+      ]
+    },
+    "docs": {
+      "path": "docs",
+      "purpose": "Documentation",
+      "fileCount": 3,
+      "lastAccessed": 1777524049143,
+      "keyFiles": [
+        "ARCHITECTURE.md",
+        "DATA-MODELS.md"
+      ]
+    },
+    "frontend": {
+      "path": "frontend",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1777524049144,
+      "keyFiles": [
+        "CLAUDE.md"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "docs/superpowers/specs/2026-04-30-vibefolio-design.md",
+      "accessCount": 8,
+      "lastAccessed": 1777540742736,
+      "type": "file"
+    },
+    {
+      "path": "backend/CLAUDE.md",
+      "accessCount": 6,
+      "lastAccessed": 1777526092421,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.local.md",
+      "accessCount": 5,
+      "lastAccessed": 1777525079321,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 4,
+      "lastAccessed": 1777538884575,
+      "type": "file"
+    },
+    {
+      "path": "docs/decisions/ADR-001-spring-nextjs-split.md",
+      "accessCount": 3,
+      "lastAccessed": 1777538890670,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 2,
+      "lastAccessed": 1777538020594,
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.local.md.example",
+      "accessCount": 1,
+      "lastAccessed": 1777524243181,
+      "type": "file"
+    },
+    {
+      "path": "frontend/CLAUDE.md",
+      "accessCount": 1,
+      "lastAccessed": 1777524243716,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}

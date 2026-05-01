@@ -1,0 +1,178 @@
+# ============================================================
+# Vibefolio — .gitignore
+# Monorepo: Spring Boot (Java/Gradle) BE + Next.js (TS) FE
+# ============================================================
+
+# ---------- OS ----------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ---------- IDE ----------
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.factorypath
+*.swp
+*.swo
+*~
+
+# ---------- Secrets & local config ----------
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Spring Boot local config (NEVER commit)
+backend/src/main/resources/application-local.yml
+backend/src/main/resources/application-prod.yml
+backend/src/main/resources/secrets.properties
+backend/src/main/resources/secrets/
+
+# Next.js local config
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.production.local
+frontend/.env.test.local
+
+# Personal Claude Code overrides (project-local, NEVER commit)
+CLAUDE.local.md
+
+# Crypto
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+id_ecdsa
+
+# ---------- Node / pnpm / Next.js ----------
+node_modules/
+.pnpm-store/
+.pnp/
+.pnp.*
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Generated API types (regenerated qua `pnpm gen:api`)
+packages/api-types/schemas.gen.ts
+packages/api-types/dist/
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Cache
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ---------- Java / Gradle / Maven ----------
+# Gradle
+.gradle/
+build/
+**/build/
+!frontend/**/build/   # Don't ignore Next.js .next or build subfolders inside FE — handled above
+.gradletasknamecache
+gradle-app.setting
+
+# Maven
+target/
+**/target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# Spring Boot
+spring-boot-*.txt
+
+# Allow Gradle wrapper jars
+!backend/gradle/wrapper/gradle-wrapper.jar
+
+# ---------- Database ----------
+*.sqlite
+*.sqlite3
+*.db
+data/
+postgres-data/
+
+# Flyway state (managed in DB, but local dumps shouldn't commit)
+*.sql.bak
+
+# ---------- Docker ----------
+docker-compose.override.yml
+.docker/
+
+# ---------- AWS / Cloud creds ----------
+.aws/
+.gcp/
+.azure/
+
+# ---------- Misc tools ----------
+.history/
+.vercel
+.netlify
+.serverless/
+.fusebox/
+.dynamodb/
+.tern-port
+
+# ---------- Generated docs (auto-built) ----------
+docs/api/openapi.json
+backend/build/openapi.json
+
+# ---------- Temp files ----------
+tmp/
+temp/
+*.tmp
+*.bak
+*.orig
+.idea

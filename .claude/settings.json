@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "_comment": "Vibefolio Claude Code permissions — copy file này về .claude/settings.json trong project root.",
+
+  "permissions": {
+    "deny": [
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf .)",
+      "Bash(rm -rf ..)",
+      "Bash(sudo *)",
+      "Bash(chmod -R 777 *)",
+      "Bash(chown -R *)",
+
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard origin/*)",
+      "Bash(git clean -fdx*)",
+      "Bash(git filter-branch*)",
+      "Bash(git update-ref -d*)",
+
+      "Bash(curl * | sh)",
+      "Bash(curl * | bash)",
+      "Bash(wget * | sh)",
+      "Bash(wget * | bash)",
+
+      "Bash(npm publish*)",
+      "Bash(pnpm publish*)",
+      "Bash(yarn publish*)",
+
+      "Bash(./gradlew publish*)",
+      "Bash(./gradlew bootBuildImage --publishImage*)",
+
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa)",
+      "Read(**/id_ed25519)",
+      "Read(backend/src/main/resources/application-local.yml)",
+      "Read(backend/src/main/resources/application-prod.yml)",
+      "Read(frontend/.env.local)",
+      "Read(frontend/.env.production)",
+
+      "Write(.env)",
+      "Write(.env.*)",
+      "Write(**/*.pem)",
+      "Write(**/*.key)",
+      "Write(backend/src/main/resources/application-local.yml)",
+      "Write(backend/src/main/resources/application-prod.yml)",
+      "Write(frontend/.env.local)",
+      "Write(frontend/.env.production)",
+
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(**/*.pem)",
+      "Edit(**/*.key)",
+      "Edit(backend/src/main/resources/application-local.yml)",
+      "Edit(backend/src/main/resources/application-prod.yml)",
+      "Edit(frontend/.env.local)",
+      "Edit(frontend/.env.production)"
+    ],
+
+    "ask": [
+      "Bash(git push*)",
+      "Bash(git reset --hard*)",
+      "Bash(git rebase --abort*)",
+      "Bash(git checkout main*)",
+      "Bash(git checkout master*)",
+
+      "Bash(./gradlew flywayClean*)",
+      "Bash(./gradlew flywayRepair*)",
+      "Bash(psql *)",
+
+      "Bash(rm -rf node_modules*)",
+      "Bash(rm -rf .next*)",
+      "Bash(rm -rf build*)",
+      "Bash(rm -rf dist*)",
+      "Bash(rm -rf target*)",
+
+      "Bash(docker rm*)",
+      "Bash(docker system prune*)",
+      "Bash(docker volume rm*)",
+
+      "Write(CLAUDE.md)",
+      "Edit(CLAUDE.md)",
+      "Write(docs/ARCHITECTURE.md)",
+      "Edit(docs/ARCHITECTURE.md)",
+      "Write(docs/DATA-MODELS.md)",
+      "Edit(docs/DATA-MODELS.md)"
+    ],
+
+    "allow": [
+      "Bash(./gradlew *)",
+      "Bash(pnpm *)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(node *)",
+      "Bash(java *)",
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git checkout -b *)",
+      "Bash(git switch *)",
+      "Bash(git branch*)",
+      "Bash(ls *)",
+      "Bash(cat *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(tree *)",
+      "Bash(curl http://localhost:*)",
+      "Bash(curl https://api.anthropic.com/*)",
+      "Bash(./scripts/*)",
+
+      "Read(**/*)",
+      "Write(frontend/**/*)",
+      "Write(backend/**/*)",
+      "Write(packages/**/*)",
+      "Write(docs/**/*)",
+      "Write(scripts/**/*)",
+      "Write(.claude/memory/**)",
+      "Edit(frontend/**/*)",
+      "Edit(backend/**/*)",
+      "Edit(packages/**/*)",
+      "Edit(docs/**/*)",
+      "Edit(scripts/**/*)",
+      "Edit(.claude/memory/**)"
+    ]
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/validate-command.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/protect-files.py"
+          }
+        ]
+      }
+    ]
+  }
+}
