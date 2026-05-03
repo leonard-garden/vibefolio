@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Vibefolio Local",
+      "Group": "Servers",
+      "Host": "postgres",
+      "Port": 5432,
+      "MaintenanceDB": "vibefolio",
+      "Username": "vibefolio",
+      "SSLMode": "prefer"
+    }
+  }
+}

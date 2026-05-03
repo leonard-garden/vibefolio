@@ -1,0 +1,36 @@
+# application-local.yml — Local development overrides
+# Copy this file to application-local.yml and fill in real values.
+# NEVER commit application-local.yml — it is gitignored.
+#
+# Usage: ./mvnw spring-boot:run -Dspring-boot.run.profiles=local
+
+spring:
+  datasource:
+    # Local PostgreSQL instance
+    # Create with: createdb vibefolio && createuser vibefolio
+    url: jdbc:postgresql://localhost:5432/vibefolio
+    username: vibefolio
+    password: vibefolio   # change to your local PG password
+
+vibefolio:
+  ai:
+    # Get from: https://console.anthropic.com/
+    api-key: sk-ant-...
+
+  storage:
+    # Cloudflare R2 credentials
+    # Dashboard: https://dash.cloudflare.com/ → R2 → Manage API Tokens
+    access-key-id: <R2_ACCESS_KEY_ID>
+    secret-access-key: <R2_SECRET_ACCESS_KEY>
+    endpoint: https://<ACCOUNT_ID>.r2.cloudflarestorage.com
+    bucket: vibefolio-pdfs-dev    # use a separate dev bucket
+
+  security:
+    # Simple API key for local FE ↔ BE auth
+    # Must match BE_API_KEY in frontend/.env.local
+    api-key: dev-key-change-in-prod
+
+  email:
+    # Get from: https://resend.com/api-keys
+    resend-api-key: re_...
+    from-address: dev@yourdomain.com   # must be a verified Resend domain
